@@ -144,4 +144,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-firebase_details.py
+#firebase_details.py
