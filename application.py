@@ -1,7 +1,4 @@
 from flask import Flask, render_template, request, url_for, session, redirect, flash, Markup, jsonify
-
-application = Flask(__name__)
-
 #from flask_cors import CORS
 from model import *
 from logic import * 
@@ -10,6 +7,10 @@ import pyrebase
 import os
 import sys
 import logging
+
+application = Flask(__name__)
+
+
 
 
 application = Flask(__name__)
