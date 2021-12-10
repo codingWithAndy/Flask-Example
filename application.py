@@ -10,11 +10,6 @@ import logging
 
 application = Flask(__name__)
 
-
-
-
-application = Flask(__name__)
-
 application.logger.addHandler(logging.StreamHandler(sys.stdout))
 application.logger.setLevel(logging.ERROR)
 
