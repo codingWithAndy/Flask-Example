@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, url_for, session, redirect, flash, Markup, jsonify
+from flask import Flask, render_template, request, url_for, session, redirect, flash, Markup, jsonify, CORS
 
 application = Flask(__name__)
 
-from flask_cors import CORS
+#from flask_cors import CORS
 from model import *
 from logic import * 
 
@@ -17,7 +17,7 @@ application = Flask(__name__)
 application.logger.addHandler(logging.StreamHandler(sys.stdout))
 application.logger.setLevel(logging.ERROR)
 
-#CORS(app)
+CORS(application)
 application.secret_key = "lets_judge"
 
 # Home form load
