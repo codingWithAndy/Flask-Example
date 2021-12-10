@@ -1,0 +1,128 @@
+h1 {
+    color: white;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.center2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.centre_text {
+    text-align: center;
+}
+
+.one {
+    width: 45%;
+    min-height: 200px;
+    float: left;
+    text-align: center;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 20px;
+    border-color: black;
+}
+
+.two {
+    margin-left: 50%;
+    min-height: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 20px;
+    border-color: black;
+    margin-top: auto;
+}
+
+.alert {
+    padding: 20px;
+    background-color: lightgreen;
+    /* Red */
+    color: black;
+    margin-bottom: 15px;
+    z-index: 10;
+}
+
+.badalert {
+    padding: 20px;
+    background-color: #f44336;
+    /* Red */
+    color: white;
+    margin-bottom: 15px;
+    z-index: 10;
+}
+
+
+/* The close button */
+
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.badclosebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#tweet1,
+#tweet2 {
+    bottom: 10px;
+}
+
+.selection-options {
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 20px;
+    border-color: black;
+    margin-top: 15px;
+    width: 65%;
+    margin: 30px auto;
+}
+
+.bg-green {
+    background-color: greenyellow;
+    border-radius: 20px;
+}
+
+.max-screen-size {
+    width: 80%;
+    margin: auto;
+}
+
+.main-area {
+    width: 80%;
+    background-color: blue;
+    margin: auto;
+}
+
+.cloumn-width-large {
+    width: 60%;
+}
+
+.column-width-sml {
+    width: 20%;
+}
+
+iframe {
+    height: 600px;
+}
