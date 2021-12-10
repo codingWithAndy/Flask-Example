@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block head%}
+<title>Results | Comparative Judgement</title>
+{% endblock %} {% block body %}
+<!--<<div class="jumbotron ">
+   img src=" {{ url_for( 'static', filename='images/img.png' ) }} " width="80%" alt="">-->
+<div class="container ">
+    <div class="jumbotron ">
+        <h2 class="display-4 ">Comparative Judgement Results</h2>
+
+        <hr class="my-4 ">
+        <p class="lead ">Welcome to How funny are tweets?: A comparative judgement Test!. An MSc project based around Comparative judgement on tweets.</p>
+        <img src=" {{ url_for( 'static', filename='images/cat_glasses.jpg' ) }} " width="80%" alt="" class="center">
+    </div>
+    <div class="jumbotron ">
+        <h2 class="display-4 ">The ELO Results are in........!</h2>
+        <ol>
+        {% for elo_order in elo_rank %}
+            
+            <li style='padding-bottom:20px'> Tweet: {{elo_order}} </br> Score: {{elo_rank[elo_order]}} </br> Content:<br> {{elo_content[elo_order]}} </li>
+            
+        {% endfor %}
+        </ol>
+
+        <hr class="my-4 ">
+        
+        
+    </div>
+    <div class="jumbotron ">
+        <h2 class="display-4 ">Results are in........!</h2>
+        <ol>
+        {% for order in rank %}
+            
+            <li style='padding-bottom:20px'> Tweet: {{order}} </br> Score: {{rank[order]}} </br> Content:<br> {{content[order]}} </li>
+            
+        {% endfor %}
+        </ol>
+
+        <hr class="my-4 ">
+        
+        
+    </div>
+
+</div>
+{% endblock %}

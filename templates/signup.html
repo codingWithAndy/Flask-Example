@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block head%}
+<title>Sign Up | Comparative Judgement</title>
+{% endblock %} {% block body %}
+<div class="container ">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages%}
+                <!--<p>{{msg}}</p>-->
+                <div class="badalert">
+                    <span class="badclosebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    {{msg}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="row " style="margin-top: 50px">
+        <div class="col-md-6 col-md-offset-3 form-container">
+            <form class="bg-white rounded shadow-5-strong p-5" action="/signup/" method="POST">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" name="email" class="form-control" />
+                  <label class="form-label" for="email">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" name="password" class="form-control" />
+                  <label class="form-label" for="password">Password</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" name="password_check" class="form-control" />
+                  <label class="form-label" for="password_check">Password</label>
+                </div>
+
+                <div class="form-outline mb-4" style="padding-bottom:15px">
+                    <input type="checkbox" id="confirm" name="confirm" unchecked>
+                    <label for="confirm">Click here if you are ok with how we use your data.</label><br>
+                    <a data-toggle="popover" title="How we use your data." data-content="We will only use your data for analytical reasons. All your data is anonymised and kept securely. For more inforamtion, please check the what is CJ page.">Click here to see how we use your data.</a><br>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block" >Sign Up</button>
+            </form>
+            <p style="align:centre;"> Already have an account: <a href="{{ url_for('login') }}"> Click Here!</a></p>
+
+ </div>
+</div>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+{% endblock %}
