@@ -132,7 +132,6 @@ iframe {
 .img-wrapper {
 
     height: 750px;
-    background-color: blue;
     position: relative;
     overflow-x:auto;
     overflow-y:auto;
@@ -141,5 +140,4 @@ iframe {
 .img-wrapper > img {
     display: inline-block;
     position: relative;
-    border:1px solid red
 }
