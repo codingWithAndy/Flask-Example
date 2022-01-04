@@ -52,7 +52,31 @@ def compare():
     if request.method == 'GET':
         try:
             if "user" in session:
-                pass
+                import json
+                exam_b = "Eduqas"
+                exam_subj = "english"
+                f = open('config.json')
+ 
+                # returns JSON object as
+                # a dictionary
+                data = json.load(f)
+                
+                # Iterating through the json
+                # list
+                exam_details = {}
+
+                for subject in data:
+                    if subject == exam_subj:
+                        print(subject)
+                        for examboards in data[subject]:
+                            if examboards == exam_b:
+                                print(examboards)
+                                for AO in data[subject][examboards]:
+                                    print(f"{AO}: {data[subject][examboards][AO]}")
+                                    exam_details[AO] = data[subject][examboards][AO]
+
+                # Closing file
+                f.close()
                 #round_number       = get_round_num(session['user'])
                 #percent            = int(round(((round_number - 1) / 5) * 100, 0))
                 #total_combinations = get_total_combinations(session['user'])
@@ -94,7 +118,7 @@ def compare():
 
             return redirect(url_for('compare'))
             
-    return render_template('compare.html', tweet1 = 1, tweet2 = url_for( 'static', filename='images/car.jpeg' ), tweet1_id = 1, tweet2_id = 2, percent = int(1), tweet_count = 1) #, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
+    return render_template('compare.html', exam_details=exam_details) #, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
 
 
 # CJ Explination form load.

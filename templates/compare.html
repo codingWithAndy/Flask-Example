@@ -57,6 +57,35 @@
                 </div>
                 
 
+                <form action="/compare/" id='yourFormId' method="POST">
+                    <div class="selection-options">
+                    <center>
+                    <table class="options">
+                        <tr class="bg-green">
+                            <th class="column-width-large"></th>
+                            <th class="column-width-sml"><center>Student 1</center></th>
+                            <th class="column-width-sml"><center>Student 2</center></th>
+                        </tr>
+                    </table>
+                    </center>
+                    </div>
+                    
+                    <label class="center" style="padding-top:20px" for="file">Comparison progress:</label>
+                    <progress class="center" id="file" value="{{ percent }}" max="100"> 90% </progress>
+                    <p class="center" style="padding-top:15px">
+                        Why did you select that piece of work?: </br>
+                        <center>
+                            <textarea rows="5" cols="40" name="content" placeholder="Enter justification here! (Optional)" style="width:45%"></textarea><br>
+                        </center>
+                    </p>
+                    <input type="submit" value="Vote!" id='submitBtn' class="center" style="width:25%">
+                    <p class="center" style="padding-top:15px">
+                        <center>
+                            {{ tweet_count - 1}} done, only {{ 5 - (tweet_count - 1)}} to go!!! You can do this!
+                        </center>
+                    </p>
+                </form>
+
         
             <form action="/compare/" id='yourFormId' method="POST">
                 <div class="selection-options">
@@ -67,58 +96,18 @@
                         <th class="column-width-sml"><center>Student 1</center></th>
                         <th class="column-width-sml"><center>Student 2</center></th>
                     </tr>
-                    <tr>
-                        <th class="column-width-large details"> AO 1: </br>
-                            Identify and interpret explicit and implicit information and ideas. Select and synthesise evidence from different texts. </br>
-                            &nbsp;
-                        </th>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 1" name="radio 1" value="{{work1_id}}"></center></td>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 1" name="radio 1" value="{{work2_id}}"></center></td>
-                    </tr>
-                    <tr class="bg-green">
-                        <th class="cloumn-width-large">AO 2: </br>
-                        Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology to support their views.</br>
-                        &nbsp;
-                        </th>
-                        <center>
-                        <td class="column-width-sml"><center><input class="radio-centre" type="radio" id="radio 2" name="radio 2" value="{{work1_id}}"></center></td>
-                        </center>
-                        <td class="column-width-sml"><center><input class="radio-centre" type="radio" id="radio 2" name="radio 2" value="{{work2_id}}"></center></td>
-                    </tr>
-                    <tr>
-                        <th class="column-width-large">AO 3: </br>
-                            Compare writers’ ideas and perspectives, as well as how these are conveyed, across two or more texts. </br>
-                            &nbsp;
+                    {% for dict_item in exam_details %}
+                        {% for key, value in dict_items.items() %}
 
-                        </th>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 3" name="radio 3" value="{{work1_id}}"></center></td>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 3" name="radio 3" value="{{work2_id}}"></center></td>
-                    </tr>
-                    <tr class="bg-green">
-                        <th class="column-width-large">AO 4: </br>
-                            Evaluate texts critically and support this with appropriate textual references. </br>
-                            &nbsp;
-                        </th>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 4" name="radio 4" value="{{work1_id}}"></center></td>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 4" name="radio 4" value="{{work2_id}}"></center></td>
-                    </tr>
-                    <tr>
-                        <th class="column-width-large">AO 5: </br>
-                        Communicate clearly, effectively and imaginatively, selecting and adapting tone, style and register for different forms, purposes and audiences.
-                        Organise information and ideas, using structural and grammatical features to support coherence and cohesion of texts.</br>
-                        &nbsp;
-                        </th>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 5" name="radio 5" value="{{work1_id}}"></center></td>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 5" name="radio 5" value="{{work2_id}}"></center></td>
-                    </tr>
-                    <tr class="bg-green">
-                        <th class="column-width-large">AO 6: </br>
-                        Candidates must use a range of vocabulary and sentence structures for clarity, purpose and effect, with accurate spelling and punctuation.
-                        &nbsp;
-                        </th>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 6" name="radio 6" value="{{work1_id}}"></center></td>
-                        <td class="column-width-sml"><center><input type="radio" id="radio 6" name="radio 6" value="{{work2_id}}"></center></td>
-                    </tr>
+                        <tr>
+                            <th class="column-width-large details"> {{key}}: </br>
+                                {{value}} </br>
+                                &nbsp;
+                            </th>
+                            <td class="column-width-sml"><center><input type="radio" id="{{key}}" name="{{key}}" value="{{work1_id}}"></center></td>
+                            <td class="column-width-sml"><center><input type="radio" id="{{key}}" name="{{key}}" value="{{work2_id}}"></center></td>
+                        </tr>
+                    
                 </table>
                 </center>
                 </div>
