@@ -28,12 +28,16 @@
                                 <input type="submit" value="previous" id="1down"/>
                                 <input type="submit" value="next" id="1up"/>
                             </form>-->
+
+                            <div id="myDiv" class="col-lg-6 img-wrapper ">
+                                <img src="https://scitechdaily.com/images/New-Hubble-Image-Shows-Part-of-the-Large-Magellanic-Cloud.jpg" width="100%">
+                            </div>
         
-                            <iframe class="col-lg-6" id='tweet_1' src="https://scitechdaily.com/images/New-Hubble-Image-Shows-Part-of-the-Large-Magellanic-Cloud.jpg" title="W3Schools Free Online Web Tutorials">
+                            <!--<iframe class="col-lg-6" id='tweet_1' src="https://scitechdaily.com/images/New-Hubble-Image-Shows-Part-of-the-Large-Magellanic-Cloud.jpg" title="W3Schools Free Online Web Tutorials">
                                 <p>
                                     Frames are not supported by your browser.
                                 </p>
-                            </iframe>
+                            </iframe>-->
         
         
         
@@ -225,6 +229,9 @@ function getData(e) {
 //        }
 //    });
 //}
+
+var d = $('#myDiv');
+d.scrollTop(d.prop("scrollHeight"));
 
 </script>
 <!--script ends here-->
