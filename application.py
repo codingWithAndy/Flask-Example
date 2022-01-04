@@ -117,8 +117,8 @@ def compare():
             update_cj_score()
 
             return redirect(url_for('compare'))
-            
-    return render_template('compare.html', tweet1 = 1, tweet2 = url_for( 'static', filename='images/car.jpeg' ), tweet1_id = 1, tweet2_id = 2, percent = int(1), tweet_count = 1) #, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
+             
+    return render_template('compare.html', exam_details=exam_details, tweet1 = 1, tweet2 = url_for( 'static', filename='images/car.jpeg' ), tweet1_id = 1, tweet2_id = 2, percent = int(1), tweet_count = 1) #, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
 
 
 # CJ Explination form load.

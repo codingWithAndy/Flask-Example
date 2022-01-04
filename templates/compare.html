@@ -57,7 +57,7 @@
                 </div>
                 
 
-                <!--<form action="/compare/" id='yourFormId' method="POST">
+                <form action="/compare/" id='yourFormId2' method="POST">
                     <div class="selection-options">
                     <center>
                     <table class="options">
@@ -66,6 +66,18 @@
                             <th class="column-width-sml"><center>Student 1</center></th>
                             <th class="column-width-sml"><center>Student 2</center></th>
                         </tr>
+                        {% for dict_item in exam_details %}
+                            {% for key, value in dict_item.items() %}
+                                <tr>
+                                    <th class="column-width-large details"> {{key}} </br>
+                                        {{value}} </br>
+                                        &nbsp;
+                                    </th>
+                                    <td class="column-width-sml"><center><input type="radio" id="{{key}}" name="{{key}}" value="{{work1_id}}"></center></td>
+                                    <td class="column-width-sml"><center><input type="radio" id="{{key}}" name="{{key}}" value="{{work2_id}}"></center></td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
                     </table>
                     </center>
                     </div>
@@ -84,7 +96,7 @@
                             {{ tweet_count - 1}} done, only {{ 5 - (tweet_count - 1)}} to go!!! You can do this!
                         </center>
                     </p>
-                </form>-->
+                </form>
 
         
             <form action="/compare/" id='yourFormId' method="POST">
