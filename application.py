@@ -52,6 +52,7 @@ def compare():
     if request.method == 'GET':
         try:
             if "user" in session:
+                pass #delete this later!
                 import json
                 exam_b = "Eduqas"
                 exam_subj = "english"
