@@ -54,7 +54,7 @@ def compare():
             if "user" in session:
                 pass #delete this later!
                 import json
-                exam_b = "Eduqas"
+                exam_b = "OCR"
                 exam_subj = "english"
                 f = open('config.json')
  
@@ -78,6 +78,8 @@ def compare():
 
                 # Closing file
                 f.close()
+                print(f'Exam details: {exam_details}')
+                print(type(exam_details))
                 #round_number       = get_round_num(session['user'])
                 #percent            = int(round(((round_number - 1) / 5) * 100, 0))
                 #total_combinations = get_total_combinations(session['user'])
@@ -119,7 +121,7 @@ def compare():
 
             return redirect(url_for('compare'))
              
-    return render_template('compare.html',  tweet1=1, 
+    return render_template('compare.html',exam_details=exam_details, tweet1=1, 
                            tweet2=url_for( 'static', filename='images/car.jpeg' ), 
                            tweet1_id=1, tweet2_id=2, percent=int(1), tweet_count=1) #,exam_details=exam_details, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
 
@@ -261,3 +263,6 @@ def logout():
     session.pop("user", None)
 
     return redirect(url_for("index"))
+
+#if __name__ == '__main__':
+#    application.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT',8080)))
