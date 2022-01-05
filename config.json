@@ -18,12 +18,30 @@
     },
     "comp_sci": {
         "OCR": {
-            "AO1": "Identify and interpret explicit and implicit information and ideas. Select and synthesise evidence from different texts.",
-            "AO2": "Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology to support their views.",
-            "AO3": "Compare writers’ ideas and perspectives, as well as how these are conveyed, across two or more texts.",
-            "AO4": "Evaluate texts critically and support this with appropriate textual references.",
-            "AO5": "Communicate clearly, effectively and imaginatively, selecting and adapting tone, style and register for different forms, purposes and audiences. <br> Organise information and ideas, using structural and grammatical features to support coherence and cohesion of texts.",
-            "AO6": "Candidates must use a range of vocabulary and sentence structures for clarity, purpose and effect, with accurate spelling and punctuation."
+            "paper_1": {
+                "AO1": "Demonstrate knowledge and understanding of the key concepts and principles of Computer Science.",
+                "AO2": "Apply knowledge and understanding of key concepts and principles of Computer Science.",
+            },
+            "paper_2": {
+                "AO1": "Demonstrate knowledge and understanding of the key concepts and principles of Computer Science.",
+                "AO2": "Apply knowledge and understanding of key concepts and principles of Computer Science.",
+                "AO3": "3 Analyse problems in computational terms:\n- to make reasoned judgements\n- to design, program, evaluate and refine solutions"
+            }
+            
+        }
+    },
+    "imedia": {
+        "R082": {
+            "LO1": "Understand the purpose and properties of digital graphics",
+            "LO2": "Be able to plan the creation of a digital graphic.",
+            "LO3": "Be able to create a digital graphic.",
+            "LO4": "Be able to review a digital graphic."
+        },
+        "R083": {
+            "LO1": "Understand the properties and uses of 2D and 3D digital characters.",
+            "LO2": "Be able to plan original 2D and 3D digital characters.",
+            "LO3": "Be able to create 2D and 3D digital characters.",
+            "LO4": "Be able to review 2D and 3D digital characters."
         }
     }
 }
