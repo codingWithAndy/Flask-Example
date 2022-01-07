@@ -78,9 +78,9 @@ def login_user(id, password):
         print("invalid user or password. Please try again")
 
 
-def signup_user(id,password):
+def signup_user(id,password,exam_board,subject):
     auth = init_auth()
-    db = init_db()
+    db   = init_db()
 
     try:
         user = auth.create_user_with_email_and_password(id,password)
@@ -120,9 +120,13 @@ def signup_user(id,password):
         for i in combination_df.index:
             dict_data = combination_df.loc[i].to_dict()
             tweet_id = i+1
-            db.child("combinations").child(user['localId']).child(tweet_id).set(dict_data)
-            
-        set_default_privilege(user['localId'])
+            db.child(user['localId']).child(tweet_id).update(dict_data)
+        
+        db.child(user['localId']).child("user_details").update({
+            "exam board": exam_board,
+            "subject": subject,
+            "access": "normal"})
+        #set_default_privilege(user['localId'])
 
         return True, user['localId']
     except:
@@ -131,7 +135,7 @@ def signup_user(id,password):
     
 def init_cj_round_number(user_id):
     db = init_db()
-    db.child("cj_position").child(user_id).update({'comparison_no': 1})
+    db.child(user_id).update({'comparison_no': 1})
 
 
 ########## Firebase Content Handling ########
@@ -151,6 +155,18 @@ def get_round_num(user_id):
     
     return current_num
 
+def get_examb_subject(user_id):
+    db = init_db()
+    user_details = db.child(user_id).child("user_details").get()
+    
+    marking_details = []
+    
+    for user_detail in user_details.each():
+        if user_detail.key() == "exam board" or user_detail.key() == "subject":
+            marking_details.append(user_detail.val())
+    
+    print(f"marking_details: {marking_details}")
+    return marking_details
 
 def record_justification(round_number,user_id,justification):
     db = init_db()
@@ -337,6 +353,6 @@ def update_cj_score():
 def set_default_privilege(user_id):
     db = init_db()
     
-    db.child("user_privileges").child(user_id).update({"access": "normal"})
+    db.child(user_id).child("user_details").update({"access": "normal"})
     
     

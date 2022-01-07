@@ -54,8 +54,7 @@ def compare():
             if "user" in session:
                 pass #delete this later!
                 import json
-                exam_b = "OCR"
-                exam_subj = "english"
+                user_exam_details = get_examb_subject(session['user'])
                 f = open('config.json')
  
                 # returns JSON object as
@@ -67,10 +66,10 @@ def compare():
                 exam_details = {}
 
                 for subject in data:
-                    if subject == exam_subj:
+                    if subject == user_exam_details[1]:
                         print(subject)
                         for examboards in data[subject]:
-                            if examboards == exam_b:
+                            if examboards == user_exam_details[0]:
                                 print(examboards)
                                 for AO in data[subject][examboards]:
                                     print(f"{AO}: {data[subject][examboards][AO]}")
@@ -209,8 +208,10 @@ def signup():
         return render_template('signup.html')
     
     if request.method == 'POST':
-        email    = request.form.get('email')
-        password = request.form.get('password')
+        email          = request.form.get('email')
+        password       = request.form.get('password')
+        exam_board     = request.form.get('examboard')
+        subject        = request.form.get('subject')
         password_check = request.form.get('password_check')
         data_confirm   = request.form.get('confirm')
 
@@ -218,7 +219,7 @@ def signup():
 
         if data_confirm == 'on':
             if password == password_check:
-                success, user_id = signup_user(email,password)
+                success, user_id = signup_user(email,password,exam_board,subject)
                 session['user']  = user_id
                 session['email'] = email
 
@@ -264,5 +265,5 @@ def logout():
 
     return redirect(url_for("index"))
 
-if __name__ == '__main__':
-    application.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT',8080)))
+#if __name__ == '__main__':
+#    application.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT',8080)))

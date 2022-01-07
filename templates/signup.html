@@ -17,6 +17,7 @@
     <div class="row " style="margin-top: 50px">
         <div class="col-md-6 col-md-offset-3 form-container">
             <form class="bg-white rounded shadow-5-strong p-5" action="/signup/" method="POST">
+                
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="email" name="email" class="form-control" />
@@ -33,6 +34,23 @@
                   <label class="form-label" for="password_check">Password</label>
                 </div>
 
+                <div class="form-outline mb-4">
+                    <select id="type" class="form-control" name="examboard">
+                        <option value="item0">--Select an Item--</option>
+                        <option value="Eduqas">Eduqas</option>
+                        <option value="OCR">OCR</option>
+                        <!--<option value="item3">iMedia</option>-->
+                    </select>
+                    <label class="form-label" for="examboard">Select Examboard</label>
+                </div>
+                <div class="form-outline mb-4">
+                    
+                    <select id="size" class="form-control" name="subject">
+                        <option value="">-- Select one --</option>
+                    </select>
+                    <label class="form-label" for="subject">Select Subject</label>
+                </div>
+
                 <div class="form-outline mb-4" style="padding-bottom:15px">
                     <input type="checkbox" id="confirm" name="confirm" unchecked>
                     <label for="confirm">Click here if you are ok with how we use your data.</label><br>
@@ -47,8 +65,22 @@
  </div>
 </div>
 <script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+    });
+    $(document).ready(function () {
+        $("#type").change(function () {
+            var val = $(this).val();
+            if (val == "Eduqas") {
+                $("#size").html("<option value='test'>-- Select one --</option><option value='english'>English</option>");
+            } else if (val == "OCR") {
+                $("#size").html("<option value='test'>-- Select one --</option><option value='computer science'>Computer Science</option><option value='english'>English</option><option value='test2'>iMedia</option>");
+            } else if (val == "item3") {
+                $("#size").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
+            } else if (val == "item0") {
+                $("#size").html("<option value=''>--Select one--</option>");
+            }
+        });
+    });
 </script>
 {% endblock %}
