@@ -49,36 +49,14 @@ def update_work():
 # CJ compare form load
 @application.route('/compare/', methods=['GET','POST'])
 def compare():
+                
     if request.method == 'GET':
         try:
             if "user" in session:
-                pass #delete this later!
-                import json
-                user_exam_details = get_examb_subject(session['user'])
-                f = open('config.json')
- 
-                # returns JSON object as
-                # a dictionary
-                data = json.load(f)
-                
-                # Iterating through the json
-                # list
-                exam_details = {}
-
-                for subject in data:
-                    if subject == user_exam_details[1]:
-                        print(subject)
-                        for examboards in data[subject]:
-                            if examboards == user_exam_details[0]:
-                                print(examboards)
-                                for AO in data[subject][examboards]:
-                                    print(f"{AO}: {data[subject][examboards][AO]}")
-                                    exam_details[AO] = data[subject][examboards][AO]
-
-                # Closing file
-                f.close()
-                print(f'Exam details: {exam_details}')
-                print(type(exam_details))
+                #pass #delete this later!
+                exam_details = read_config_json(session["user"])
+                #print(f'Exam details: {exam_details}')
+                #print(type(exam_details))
                 #round_number       = get_round_num(session['user'])
                 #percent            = int(round(((round_number - 1) / 5) * 100, 0))
                 #total_combinations = get_total_combinations(session['user'])
@@ -103,26 +81,35 @@ def compare():
             
     
     if request.method == 'POST':
-        radio_1       = request.form.get('radio')
+        exam_details = read_config_json(session["user"])
+        radio_1       = []#request.form.get("AO1")#request.form.getlist('options')#request.form.get('option')
+        
+        for key in exam_details:
+            radio_button = request.form.get(key)
+            radio_1.append(radio_button)
+        
         justification = request.form.get('content')
+        
+        print(f"radio_1: {radio_1}")
 
         if radio_1 == None:
             message = "You have missed some required information. Please try again"
             flash(message, "info")
             return redirect(url_for('compare'))
         else:
-            round_number = get_round_num(session['user'])
-            percent = round_number / 5
-            update_result(round_number,radio_1,session['user'])
-            record_justification(round_number,session['user'],justification)
-            update_round_number(session['user'])
-            update_cj_score()
+            exam_details = read_config_json(session["user"])
+            #round_number = get_round_num(session['user'])
+            #percent = round_number / 5
+            #update_result(round_number,radio_1,session['user'])
+            #record_justification(round_number,session['user'],justification)
+            #update_round_number(session['user'])
+            #update_cj_score()
 
-            return redirect(url_for('compare'))
+            #return redirect(url_for('compare'))
              
     return render_template('compare.html',exam_details=exam_details, tweet1=1, 
                            tweet2=url_for( 'static', filename='images/car.jpeg' ), 
-                           tweet1_id=1, tweet2_id=2, percent=int(1), tweet_count=1) #,exam_details=exam_details, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
+                           work1_id=1, work2_id=2, percent=int(1), tweet_count=1) #,exam_details=exam_details, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
 
 
 # CJ Explination form load.

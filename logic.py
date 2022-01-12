@@ -355,4 +355,31 @@ def set_default_privilege(user_id):
     
     db.child(user_id).child("user_details").update({"access": "normal"})
     
+
+def read_config_json(user_id):
+    import json
+    user_exam_details = get_examb_subject(user_id)
+    f = open('config.json')
+
+    # returns JSON object as
+    # a dictionary
+    data = json.load(f)
     
+    # Iterating through the json
+    # list
+    exam_details = {}
+
+    for subject in data:
+        if subject == user_exam_details[1]:
+            #print(subject)
+            for examboards in data[subject]:
+                if examboards == user_exam_details[0]:
+                    #print(examboards)
+                    for AO in data[subject][examboards]:
+                        #print(f"{AO}: {data[subject][examboards][AO]}")
+                        exam_details[AO] = data[subject][examboards][AO]
+
+    # Closing file
+    f.close()
+    
+    return exam_details

@@ -37,6 +37,7 @@
                 <div class="form-outline mb-4">
                     <select id="type" class="form-control" name="examboard">
                         <option value="item0">--Select an Item--</option>
+                        <option value="AQA">AQA</option>
                         <option value="Eduqas">Eduqas</option>
                         <option value="OCR">OCR</option>
                         <!--<option value="item3">iMedia</option>-->
@@ -75,8 +76,8 @@
                 $("#size").html("<option value='test'>-- Select one --</option><option value='english'>English</option>");
             } else if (val == "OCR") {
                 $("#size").html("<option value='test'>-- Select one --</option><option value='computer science'>Computer Science</option><option value='english'>English</option><option value='test2'>iMedia</option>");
-            } else if (val == "item3") {
-                $("#size").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
+            } else if (val == "AQA") {
+                $("#size").html("<option value='test'>-- Select one --</option><option value='english'>English</option>");
             } else if (val == "item0") {
                 $("#size").html("<option value=''>--Select one--</option>");
             }

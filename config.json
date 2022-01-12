@@ -5,17 +5,23 @@
             "AO2": "Explain, comment on and analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology to support their views.",
             "AO3": "Compare writers’ ideas and perspectives, as well as how these are conveyed, across two or more texts.",
             "AO4": "Evaluate texts critically and support this with appropriate textual references.",
-            "AO5": "Communicate clearly, effectively and imaginatively, selecting and adapting tone, style and register for different forms, purposes and audiences.\nOrganise information and ideas, using structural and grammatical features to support coherence and cohesion of texts.",
+            "AO5": "Communicate clearly, effectively and imaginatively, selecting and adapting tone, style and register for different forms, purposes and audiences.</br> &emsp;- Organise information and ideas, using structural and grammatical features to support coherence and cohesion of texts.",
             "AO6": "Candidates must use a range of vocabulary and sentence structures for clarity, purpose and effect, with accurate spelling and punctuation."
         },
         "Eduqas": {
-            "AO1": "Identify and interpret explicit and implicit information and ideas.\nSelect and synthesise evidence from different texts",
+            "AO1": "Identify and interpret explicit and implicit information and ideas.</br> &emsp;Select and synthesise evidence from different texts",
             "AO2": "Explain, comment on analyse how writers use language and structure to achieve effects and influence readers, using relevant subject terminology to support their views",
             "AO3": "Compare writers' ideas and perspectives, as well as how these are conveyed, across two or more texts",
             "AO4": "Evaluate texts critically and support this with appropriate textual references"
+        },
+        "AQA": {
+            "AO1": "Read, understand and respond to texts. Students should be able to:</br>&emsp;- Maintain a critical style and develop an informed personal response</br> &emsp;- Use textual references, including quotations, to support and illustrate interpretations.",
+            "AO2": "Analyse the language, form and structure used by a writer to create meanings and effects, using relevant subject terminology where appropriate.",
+            "AO3": "Show understanding of the relationships between texts and the contexts in which they were written.",
+            "AO4": "Use a range of vocabulary and sentence structures for clarity, purpose and effect, with accurate spelling and punctuation."
         }
-
-    },
+    }
+    ,
     "computer science": {
         "OCR": {
                 "AO1": "Demonstrate knowledge and understanding of the key concepts and principles of Computer Science.",

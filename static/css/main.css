@@ -105,7 +105,7 @@ h1 {
 }
 
 .max-screen-size {
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
@@ -130,8 +130,7 @@ iframe {
 }
 
 .img-wrapper {
-
-    height: 750px;
+    height: 1000px;
     position: relative;
     overflow-x:auto;
     overflow-y:auto;

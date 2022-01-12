@@ -17,7 +17,7 @@
         <p class="lead centre_text">Please select which piece of work you think is better.</p>
 
         <!--<img src=" {{ url_for( 'static', filename='images/rubric.png' ) }} " width="80%" style="padding-bottom: 30px" alt="" class="center">-->
-            <section class="container-fluid">
+            
                 <div class="row">
                     
                         <!--<form method="POST" id="ajaxTest">-->
@@ -55,6 +55,8 @@
                             <label for="tweet2">CSS</label><br>-->
                 
                 </div>
+
+                <section class="container-fluid">
                 
 
                 <form action="/compare/" id='yourFormId' method="POST">
@@ -70,7 +72,7 @@
                             {% for key, value in exam_details.items() %}
                                 <tr>
                                     <th class="column-width-large details"> {{key}} </br>
-                                        {{value}} </br>
+                                        {{value|safe}} </br>
                                         &nbsp;
                                     </th>
                                     <td class="column-width-sml"><center><input type="radio" id="{{key}}" name="{{key}}" value="{{work1_id}}"></center></td>
