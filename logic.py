@@ -142,18 +142,21 @@ def init_cj_round_number(user_id):
 def update_round_number(user_id):
     db = init_db()
     current_round = get_round_num(user_id)
+    print(f"current round in update: {current_round}")
+    nxt_round = current_round + 1
+    print(f"nxt round: {nxt_round}")
 
-    db.child("cj_position").child(user_id).update({'comparison_no': current_round + 1})
+    db.child(user_id).update({'comparison_no': nxt_round})
 
 
 def get_round_num(user_id):
     db = init_db()
-    round_info = db.child("cj_position").child(user_id).get()
+    user_details = db.child(user_id).child("comparison_no").get()
+    round_no     = user_details.val()
     
-    for cj_position in round_info.each():
-        current_num = cj_position.val()
+    print(f"round_number in get: {round_no}, type: {type(round_no)}")
     
-    return current_num
+    return round_no
 
 def get_examb_subject(user_id):
     db = init_db()

@@ -92,22 +92,23 @@ def compare():
         
         print(f"radio_1: {radio_1}")
 
-        if radio_1 == None:
+        if radio_1[0] == None:
             message = "You have missed some required information. Please try again"
             flash(message, "info")
             return redirect(url_for('compare'))
         else:
             exam_details = read_config_json(session["user"])
-            #round_number = get_round_num(session['user'])
-            #percent = round_number / 5
+            round_number = get_round_num(session['user'])
+            print(f"round number: {round_number}")
+            #percent = round_number / 5 # in future change the 5 to a denominator that is generated at the sign up space of total combinations.
             #update_result(round_number,radio_1,session['user'])
             #record_justification(round_number,session['user'],justification)
-            #update_round_number(session['user'])
+            update_round_number(session['user'])
             #update_cj_score()
 
             #return redirect(url_for('compare'))
              
-    return render_template('compare.html',exam_details=exam_details, tweet1=1, 
+    return render_template('compare.html', exam_details=exam_details, tweet1=1, 
                            tweet2=url_for( 'static', filename='images/car.jpeg' ), 
                            work1_id=1, work2_id=2, percent=int(1), tweet_count=1) #,exam_details=exam_details, tweet1 = tweet1, tweet2 = tweet2, tweet1_id = tweet1_id, tweet2_id = tweet2_id, percent = int(percent), tweet_count = round_number
 
