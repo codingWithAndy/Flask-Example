@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, session, redirect, flash, Markup, jsonify
+from flask import Flask, render_template, request, url_for, session, redirect, flash, Markup, jsonify, make_response
 #from flask_cors import CORS
 from model import *
 from logic import * 
@@ -81,18 +81,18 @@ def compare():
             
     
     if request.method == 'POST':
-        exam_details = read_config_json(session["user"])
-        radio_1       = []#request.form.get("AO1")#request.form.getlist('options')#request.form.get('option')
+        exam_details     = read_config_json(session["user"])
+        radio_selections = []#request.form.get("AO1")#request.form.getlist('options')#request.form.get('option')
         
         for key in exam_details:
             radio_button = request.form.get(key)
-            radio_1.append(radio_button)
+            radio_selections.append(radio_button)
         
         justification = request.form.get('content')
         
-        print(f"radio_1: {radio_1}")
+        print(f"radio_1: {radio_selections}")
 
-        if radio_1[0] == None:
+        if radio_selections[0] == None:
             message = "You have missed some required information. Please try again"
             flash(message, "info")
             return redirect(url_for('compare'))
@@ -183,7 +183,9 @@ def login():
                 session['user']  = user
                 session['email'] = email
                 flash("You have been logged in successfully.", "info")
-                return redirect(url_for('index'))
+                res = make_response(redirect(url_for('index')))
+                res.set_cookie("logged_in", "True")
+                return res
         except:
             flash("Email address does not exist, please sign up.", "info")
             return redirect(url_for('signup'))
@@ -213,7 +215,9 @@ def signup():
 
                 if success == True:
                     flash("You have been signed up successfully.", "info")
-                    return redirect(url_for('index'))
+                    res = make_response(redirect(url_for('index')))
+                    res.set_cookie("logged_in", "True")
+                    return res
                 else:
                     flash("Email address already exists, please try logging in instead.", "info")
                     return redirect(url_for('signup'))
@@ -250,8 +254,11 @@ def logout():
         flash(message, "info")
 
     session.pop("user", None)
-
-    return redirect(url_for("index"))
+    res = make_response(redirect(url_for('index')))
+    res.set_cookie("logged_in", "False")
+    return res
+    
+#return redirect(url_for("index"))
 
 #if __name__ == '__main__':
 #    application.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT',8080)))
