@@ -20,6 +20,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body onload="ReadCookie()">
@@ -55,10 +56,10 @@
     {% endwith %}
 
         <div class="jumbotron ">
-            <h1 class="display-4 ">How funny are tweets?: <br/>A Comparative Judgement Test!</h1>
+            <h1 class="display-4 ">Lets get marking!: <br/>A Comparative Judgement alternative!</h1>
 
             <hr class="my-4 ">
-            <p class="lead ">Welcome to How funny are tweets?: A comparative judgement Test!. An MSc project based around Comparative judgement on tweets.</p>
+            <p class="lead ">Welcome to lets get marking!: A comparative judgement alternative. A project based around multi-dimensional Comparative judgement.</p>
             <img src=" {{ url_for( 'static', filename='images/cat_glasses.jpg' ) }} " width="80%" alt="" class="center">
         </div>
 

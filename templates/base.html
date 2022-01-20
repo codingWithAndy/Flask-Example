@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
-<body>
+<body onload="ReadCookie()">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -38,14 +38,14 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url_for('signup') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login/Logout</a></li>
+                <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> <span id="login_status">Login</span></a></li>
             </ul>
         </div>
     </nav>
     {% block body %}{% endblock %}
 
 
-    <script src="" async defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='JS/base_js.js') }}"></script>
 </body>
 
 </html>
