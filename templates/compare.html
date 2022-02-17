@@ -61,6 +61,14 @@
                                 <th class="column-width-sml"><center>Student 1</center></th>
                                 <th class="column-width-sml"><center>Student 2</center></th>
                             </tr>
+                            <tr>
+                                <th class="column-width-large details"> Overall Performance </br>
+                                    Please select which piece of work you think is better overall </br>
+                                    &nbsp;
+                                </th>
+                                <td class="column-width-sml"><center><input type="radio" id="overall" name="overall" value="{{work1_id}}"></center></td>
+                                <td class="column-width-sml"><center><input type="radio" id="overall" name="overall" value="{{work2_id}}"></center></td>
+                            </tr>
                             
                                 {% for key, value in exam_details.items() %}
                                     <tr>
